@@ -5,9 +5,16 @@
 const inputMail= document.getElementById('input-mail');
 const btnInput= document.getElementById('btn-mail');
 btnInput.addEventListener('click', checkMail);
-// array email utente iscritto
+const alert= document.querySelector('.alert');
 
-// controllo email inserita all'interno dell'input
+// array email utente iscritto
+let dbUserMail = ['pippo@disney.com', 'paperino@disney.com', 'minnie@dinsey.com', 'paperina@dinsey.com', 'topolino@dinsey.com', 'michele@boolean.com'];
+
+//utilities
+let flag;
+
+
+
 
 // stampo risultato presente
 
@@ -17,6 +24,17 @@ btnInput.addEventListener('click', checkMail);
 // function checkMail
 
 function checkMail(){
-    let mailUser = inputMail.value;
-    console.log(mailUser);
+    let inputUser = inputMail.value;
+    console.log(inputUser);
+    // controllo email inserita all'interno dell'input
+    for (let i = 0; i < dbUserMail.length-1; i++) {
+    const user = dbUserMail[i];
+    
+    if (user.toLowerCase() === inputUser.toLowerCase()) {
+        flag = true;
+        console.log('Trovato');
+    } else{
+        console.log('non trovato');
+    }
+}
 }
