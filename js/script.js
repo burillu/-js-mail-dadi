@@ -67,8 +67,17 @@ function checkMail() {
 const btnDice = document.getElementById('btn-dice');
 btnDice.addEventListener('click', playDice);
 
+// prendo i div col risultato
+const myResult = document.getElementById('my-result-dice');
+const cpuResult = document.getElementById('cpu-result-dice');
 
 function playDice() {
+    myResult.classList.remove('text-success');
+    myResult.classList.remove('text-danger');
+    myResult.classList.remove('text-secondary');
+    cpuResult.classList.remove('text-danger');
+    cpuResult.classList.remove('text-secondary');
+    cpuResult.classList.remove('text-success');
     const diceArr = [
         `<i class="fa-solid fa-dice-one fa-10x"></i>`,
         `<i class="fa-solid fa-dice-two fa-10x"></i>`,
@@ -77,21 +86,39 @@ function playDice() {
         `<i class="fa-solid fa-dice-five fa-10x"></i>`,
         `<i class="fa-solid fa-dice-six fa-10x"></i>`
     ];
-    let num1 = getRndInteger(1,6);
-    let num2 = getRndInteger(1,6);
+
+
+
+    let num1 = getRndInteger(1, 6);
+    let num2 = getRndInteger(1, 6);
+    let color1, color2, text;
     console.log(num1);
     console.log(num2);
-    
-    if (num1 > num2){
+    if (num1 > num2) {
         console.log('Hai Vinto');
-    } else if (num2> num1) {
+        color1 = 'text-success';
+        color2 = 'text-danger';
+    } else if (num2 > num1) {
         console.log('Hai Perso');
-    } else{
+        color1 = 'text-danger';
+        color2 = 'text-success';
+    } else {
         console.log('Pareggio');
+        color1 = 'text-secondary'
+        color2 = 'text-secondary';
     }
+    myResult.classList.add(color1);
+    cpuResult.classList.add(color2);
+    myResult.innerHTML = diceArr[num1 - 1];
+    cpuResult.innerHTML = diceArr[num2 - 1];
+    // faccio apparire il risultato
+    const diceResult = document.getElementById('result-dice');
+    diceResult.classList.remove('d-none');
+
+
 }
 
 
 function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
