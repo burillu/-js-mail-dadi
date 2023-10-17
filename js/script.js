@@ -21,7 +21,7 @@ let dbUserMail = [
 ];
 
 //utilities
-let flag = false;
+
 
 // stampo risultato presente
 
@@ -36,6 +36,7 @@ function checkMail() {
     resultMail.classList.add('d-none');
     let inputUser = inputMail.value;
     let bg, text;
+    let flag = false;
     // confronto email inserita all'interno dell'input
     for (let i = 0; i < dbUserMail.length; i++) {
         const user = dbUserMail[i];
