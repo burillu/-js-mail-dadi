@@ -70,6 +70,7 @@ btnDice.addEventListener('click', playDice);
 // prendo i div col risultato
 const myResult = document.getElementById('my-result-dice');
 const cpuResult = document.getElementById('cpu-result-dice');
+const resultGame= document.getElementById('result-game');
 
 function playDice() {
     myResult.classList.remove('text-success');
@@ -78,6 +79,9 @@ function playDice() {
     cpuResult.classList.remove('text-danger');
     cpuResult.classList.remove('text-secondary');
     cpuResult.classList.remove('text-success');
+    resultGame.classList.remove('alert-success');
+    resultGame.classList.remove('alert-danger');
+    resultGame.classList.remove('alert-secondary');
     const diceArr = [
         `<i class="fa-solid fa-dice-one fa-10x"></i>`,
         `<i class="fa-solid fa-dice-two fa-10x"></i>`,
@@ -91,19 +95,25 @@ function playDice() {
 
     let num1 = getRndInteger(1, 6);
     let num2 = getRndInteger(1, 6);
-    let color1, color2, text;
+    let color1, color2, text, bg;
     console.log(num1);
     console.log(num2);
     if (num1 > num2) {
         console.log('Hai Vinto');
+        text= 'Hai Vinto!'
+        bg = 'alert-success';
         color1 = 'text-success';
         color2 = 'text-danger';
     } else if (num2 > num1) {
-        console.log('Hai Perso');
+        console.log('Hai Perso');        
+        text= 'Hai perso. Ritenta';
+        bg = 'alert-danger';
         color1 = 'text-danger';
         color2 = 'text-success';
     } else {
         console.log('Pareggio');
+        text = 'Pareggio';
+        bg = 'alert-secondary';
         color1 = 'text-secondary'
         color2 = 'text-secondary';
     }
@@ -111,8 +121,12 @@ function playDice() {
     cpuResult.classList.add(color2);
     myResult.innerHTML = diceArr[num1 - 1];
     cpuResult.innerHTML = diceArr[num2 - 1];
+    resultGame.classList.add(bg);
+    resultGame.innerText = text;
+
     // faccio apparire il risultato
     const diceResult = document.getElementById('result-dice');
+
     diceResult.classList.remove('d-none');
 
 
