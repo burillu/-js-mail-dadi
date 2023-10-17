@@ -56,8 +56,42 @@ function checkMail() {
         Registrati per accedere `;
     }
     resultMail.classList.add(bg);
-    resultMail.innerText= text;
+    resultMail.innerText = text;
     resultMail.classList.remove('d-none');
 
 
 }
+
+//gioco dei dadi
+
+const btnDice = document.getElementById('btn-dice');
+btnDice.addEventListener('click', playDice);
+
+
+function playDice() {
+    const diceArr = [
+        `<i class="fa-solid fa-dice-one fa-10x"></i>`,
+        `<i class="fa-solid fa-dice-two fa-10x"></i>`,
+        `<i class="fa-solid fa-dice-three fa-10x"></i>`,
+        `<i class="fa-solid fa-dice-four fa-10x"></i>`,
+        `<i class="fa-solid fa-dice-five fa-10x"></i>`,
+        `<i class="fa-solid fa-dice-six fa-10x"></i>`
+    ];
+    let num1 = getRndInteger(1,6);
+    let num2 = getRndInteger(1,6);
+    console.log(num1);
+    console.log(num2);
+    
+    if (num1 > num2){
+        console.log('Hai Vinto');
+    } else if (num2> num1) {
+        console.log('Hai Perso');
+    } else{
+        console.log('Pareggio');
+    }
+}
+
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }

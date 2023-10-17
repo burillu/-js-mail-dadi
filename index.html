@@ -20,17 +20,45 @@
 </head>
 
 <body>
+  <!-- Controllo email -->
   <div class="container py-3">
-    <h2 class="my-3">Controllo Utente registrato: </h2>
-    <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="input-mail" placeholder="name@example.com" name="input-user"
-        value="">
-      <label for="floatingInput">Inserisci la tua mail</label>
+    <div class="">
+      <h2 class="my-3">Controllo Utente registrato: </h2>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="input-mail" placeholder="name@example.com" name="input-user"
+          value="">
+        <label for="floatingInput">Inserisci la tua mail</label>
+      </div>
+      <button id="btn-mail" class="btn btn-primary">Log-in</button>
+      <div class="alert d-none my-2" id="result-mail"></div>
     </div>
-    <button id="btn-mail" class="btn btn-primary">Log-in</button>
-    <div class="alert d-none my-2" id="result-mail"></div>
+    <!-- Gioco dei dadi -->
+    <div class="py-3 rounded-2 border-black border-2" id="dice-game">
+      <h2 class="">Gioca con i dadi!</h2>
+      <button class="btn btn-outline-dark" id="btn-dice"> <i class="fa-solid fa-dice"></i> Gioca!</button>
+
+      <!-- div d-none -->
+
+      <div class="" id="result-dice">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <h3>Il tuo Punteggio</h3>
+              <div class="" id=""></div>
+            </div>
+            <div class="col-6">
+              <h3>Punteggio avversario</h3>
+              <div class="" id=""></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  
+
+
 
   </div>
 
